@@ -1,0 +1,45 @@
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.Color; 
+
+public class MainWindow extends JFrame{
+    
+    public MainWindow(){
+        super("My first Window");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new FlowLayout(FlowLayout.CENTER));
+        getContentPane().setBackground(Color.gray);
+        buildMessageWindow();
+        setVisible(true);
+    }
+
+    public void buildMessageWindow(){
+        JPanel grid = new JPanel();
+        grid.setLayout(new GridLayout(4, 2));
+        JLabel label = new JLabel("Olá, mundo", JLabel.CENTER);
+        label.setBackground(new Color(255,0, 0));
+        grid.add(label);
+
+        JButton button = new JButton("OK");
+        grid.add(button);
+        grid.add(new JButton("Um texto qualquer"));
+        grid.add(new JButton("Um texto qualquer"));
+        grid.add(new JButton("Um texto qualquer"));
+        grid.add(new JButton("Um texto qualquer"));
+        grid.add(new JButton("Um texto qualquer"));
+        grid.add(new JButton("Um texto qualquer"));
+        grid.add(new JButton("Um texto qualquer"));
+    
+        add(grid);
+    }
+
+    public static void main(String[] args) {
+        JFrame window = new MainWindow();
+    }
+}
