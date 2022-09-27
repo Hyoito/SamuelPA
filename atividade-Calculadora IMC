@@ -1,0 +1,80 @@
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.JOptionPane;
+
+public class MainWindow extends JFrame implements ActionListener {
+
+	protected JButton calculo;
+	protected JButton clear;
+	protected JLabel message;
+	protected JTextField peso;
+	protected JTextField altura;
+	protected int num1;
+	protected double num2;
+
+	
+		public static void main(String[] args) {
+			JFrame window = new MainWindow();
+			window.setVisible(true);
+
+		}
+
+	
+	public MainWindow() { 
+		setSize(400, 200);
+		setLocation(100, 100);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new FlowLayout(FlowLayout.CENTER));
+		
+		JPanel panel = new JPanel();
+		panel.setLayout(new GridLayout(4,1));
+		
+		JLabel label = new JLabel("Calculadora de IMC", JLabel.CENTER);
+		panel.add(label);
+		
+		peso = new JTextField();
+		peso.addActionListener(this);
+		panel.add(peso);
+
+		altura = new JTextField();
+		altura.addActionListener(this);
+		panel.add(altura);
+		
+		calculo = new JButton("Calcular");
+		calculo.addActionListener(this);
+		panel.add(calculo);
+
+		add(panel);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		
+		String text = peso.getText();
+		peso.setText("");
+
+		
+		String text2 = altura.getText();
+		altura.setText("");
+
+		
+		int num1 = Integer.parseInt(text);
+		double num2 = Double.parseDouble(text2);
+		
+		double result = (num1 /(num2 * num2));
+		String IMC = "" + result;
+		JOptionPane.showMessageDialog(null, "Seu IMC é: " + IMC);
+
+	}
+
+
+}
