@@ -13,8 +13,6 @@ import javax.swing.JOptionPane;
 public class MainWindow extends JFrame implements ActionListener {
 
 	protected JButton calculo;
-	protected JButton clear;
-	protected JLabel message;
 	protected JTextField peso;
 	protected JTextField altura;
 	protected double num1;
