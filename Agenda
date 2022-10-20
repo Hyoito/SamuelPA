@@ -21,7 +21,8 @@ public class MainWindow extends JFrame implements ActionListener{
 	protected JButton btnInsert, btnEdit, btnRemove, btnClose;
 	
 	public MainWindow() {
-		setSize(450,200);
+		setSize(400,180);
+		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setLayout(new BorderLayout(10,10));
@@ -41,10 +42,13 @@ public class MainWindow extends JFrame implements ActionListener{
 		
 		btnInsert = new JButton("Inserir");
 		btnInsert.addActionListener(this);
+		
 		btnRemove = new JButton("Excluir");
 		btnRemove.addActionListener(this);
+		
 		btnEdit = new JButton("Editar");
 		btnEdit.addActionListener(this);
+		
 		btnClose = new JButton("Fechar");
 		btnClose.addActionListener(this);
 		
@@ -72,11 +76,28 @@ public class MainWindow extends JFrame implements ActionListener{
 	}
 	
 	private void removeItem() {
+		int index = list.getSelectedIndex();
 		
+		if (index < 0) {
+			JOptionPane.showInputDialog(this, "Selecione um item para remover");
+			return;
+		}
+		listModel.removeElementAt(index);
 	}
 	
 	private void editItem() {
+		int index = list.getSelectedIndex();
 		
+		if (index < 0) {
+			JOptionPane.showInputDialog(this, "Selecione um item para editar");
+			return;
+		}
+
+		String value = list.getSelectedValue().toString();
+		
+		String name = JOptionPane.showInputDialog(this, "Nome do contato");
+
+		listModel.setElementAt(name, index);
 	}
 	
 	@Override
