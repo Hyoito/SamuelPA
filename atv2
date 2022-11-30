@@ -230,7 +230,11 @@ public class MainWindow extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+		if (e.getSource() == btnInsertA) {
+			letter1.setText(btnInsertA.getText());
+			return;
+
+			}
 	}
 	
 	public static void main(String[] args) {
