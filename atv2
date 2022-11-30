@@ -1,0 +1,240 @@
+package atv2;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+
+public class MainWindow extends JFrame implements ActionListener {
+
+	protected JTextField letter1, letter2, letter3, letter4, letter5;
+	protected JButton btnInsertA, btnInsertB, btnInsertC, btnInsertD, btnInsertE, btnInsertF, btnInsertG, btnInsertH, btnInsertI, btnInsertJ, btnInsertK, btnInsertL, btnInsertM, btnInsertN, btnInsertO,
+	btnInsertP, btnInsertQ, btnInsertR, btnInsertS, btnInsertT, btnInsertU, btnInsertV, btnInsertW, btnInsertX, btnInsertY, btnInsertZ, btnRemove, btnEnter;
+
+	public MainWindow() {
+
+		setSize(500, 400);
+		setResizable(false);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		setLayout(new BorderLayout());
+
+		JLabel label = new JLabel("TERMO", JLabel.CENTER);
+		
+		JPanel buttons1 = createPanelButtons1();
+		JPanel buttons2 = createPanelButtons2();
+		JPanel buttons3 = createPanelButtons3();
+		
+		JPanel row1 = rowPanel();
+		JPanel row2 = rowPanel();
+		JPanel row3 = rowPanel();
+		JPanel row4 = rowPanel();
+		JPanel row5 = rowPanel();
+		JPanel row6 = rowPanel();
+		
+		JPanel game = new JPanel();
+		game.setLayout(new FlowLayout(1,100,10));
+		
+		game.add(row1);
+		game.add(row2);
+		game.add(row3);
+		game.add(row4);
+		game.add(row5);
+		game.add(row6);
+		
+		game.add(buttons1);
+		game.add(buttons2);
+		game.add(buttons3);
+		
+		btnEnter = new JButton("Enter");
+		btnEnter.addActionListener(this);
+		game.add(btnEnter);
+		
+		btnRemove = new JButton("⬅");
+		btnRemove.addActionListener(this);
+		game.add(btnRemove);
+		
+		add("North", label);
+		add(game);
+
+		
+	}
+
+	private JPanel rowPanel() {
+		
+		JPanel panel = new JPanel();
+		panel.setLayout(new GridLayout(1, 5, 6, 6));
+		
+		letter1 = new JTextField(2);
+		letter1.addActionListener(this);
+		panel.add(letter1);
+		
+		letter2 = new JTextField(2);
+		letter2.addActionListener(this);
+		panel.add(letter2);
+
+		letter3 = new JTextField(2);
+		letter3.addActionListener(this);
+		panel.add(letter3);
+		
+		letter4 = new JTextField(2);
+		letter4.addActionListener(this);
+		panel.add(letter4);
+		
+		letter5 = new JTextField(2);
+		letter5.addActionListener(this);
+		panel.add(letter5);
+		
+		return panel;
+	}
+
+	private JPanel createPanelButtons1(){
+		JPanel panel = new JPanel();
+		panel.setLayout(new GridLayout(1, 10, 2, 2));
+		
+		btnInsertQ = new JButton("Q");
+		btnInsertQ.addActionListener(this);
+
+		btnInsertW = new JButton("W");
+		btnInsertW.addActionListener(this);
+		
+		btnInsertE = new JButton("E");
+		btnInsertE.addActionListener(this);
+		
+		btnInsertR = new JButton("R");
+		btnInsertR.addActionListener(this);
+		
+		btnInsertT = new JButton("T");
+		btnInsertT.addActionListener(this);
+		
+		btnInsertY = new JButton("Y");
+		btnInsertY.addActionListener(this);
+		
+		btnInsertU = new JButton("U");
+		btnInsertU.addActionListener(this);
+		
+		btnInsertI = new JButton("I");
+		btnInsertI.addActionListener(this);
+		
+		btnInsertO = new JButton("O");
+		btnInsertO.addActionListener(this);
+		
+		btnInsertP = new JButton("P");
+		btnInsertP.addActionListener(this);
+		
+		
+		
+		panel.add(btnInsertQ);
+		panel.add(btnInsertW);
+		panel.add(btnInsertE);
+		panel.add(btnInsertR);
+		panel.add(btnInsertT);
+		panel.add(btnInsertY);
+		panel.add(btnInsertU);
+		panel.add(btnInsertI);
+		panel.add(btnInsertO);
+		panel.add(btnInsertP);
+
+		return panel;
+	}
+	
+	private JPanel createPanelButtons2(){
+		JPanel panel = new JPanel();
+		panel.setLayout(new GridLayout(1, 9, 2, 2));
+		
+		btnInsertA = new JButton("A");
+		btnInsertA.addActionListener(this);
+		
+		btnInsertS = new JButton("S");
+		btnInsertS.addActionListener(this);
+		
+		btnInsertD = new JButton("D");
+		btnInsertD.addActionListener(this);
+		
+		btnInsertF = new JButton("F");
+		btnInsertF.addActionListener(this);
+		
+		btnInsertG = new JButton("G");
+		btnInsertG.addActionListener(this);
+		
+		btnInsertH = new JButton("H");
+		btnInsertH.addActionListener(this);
+		
+		btnInsertJ = new JButton("J");
+		btnInsertJ.addActionListener(this);
+		
+		btnInsertK = new JButton("K");
+		btnInsertK.addActionListener(this);
+		
+		btnInsertL = new JButton("L");
+		btnInsertL.addActionListener(this);
+		
+		
+		panel.add(btnInsertA);
+		panel.add(btnInsertS);
+		panel.add(btnInsertD);
+		panel.add(btnInsertF);
+		panel.add(btnInsertG);
+		panel.add(btnInsertH);
+		panel.add(btnInsertJ);
+		panel.add(btnInsertK);
+		panel.add(btnInsertL);
+
+		return panel;
+	}
+	
+	private JPanel createPanelButtons3(){
+		JPanel panel = new JPanel();
+		panel.setLayout(new GridLayout(1, 7, 2, 2));
+		
+		btnInsertZ = new JButton("Z");
+		btnInsertZ.addActionListener(this);
+		
+		btnInsertX = new JButton("X");
+		btnInsertX.addActionListener(this);
+		
+		btnInsertC = new JButton("C");
+		btnInsertC.addActionListener(this);
+		
+		btnInsertV = new JButton("V");
+		btnInsertV.addActionListener(this);
+		
+		btnInsertB = new JButton("B");
+		btnInsertB.addActionListener(this);
+		
+		btnInsertN = new JButton("N");
+		btnInsertN.addActionListener(this);
+		
+		btnInsertM = new JButton("M");
+		btnInsertM.addActionListener(this);	
+		
+		panel.add(btnInsertZ);
+		panel.add(btnInsertX);
+		panel.add(btnInsertC);
+		panel.add(btnInsertV);
+		panel.add(btnInsertB);
+		panel.add(btnInsertN);
+		panel.add(btnInsertM);
+
+
+		return panel;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+	}
+	
+	public static void main(String[] args) {
+		JFrame window = new MainWindow();
+		window.setVisible(true);
+	}
+}
